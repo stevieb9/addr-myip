@@ -1,6 +1,7 @@
 use warnings;
 use strict;
 
+use Hook::Output::Tiny;
 use Mock::Sub;
 use Net::MyIP;
 use Test::More;
@@ -16,7 +17,7 @@ if (! $ENV{DEV_TESTING} || $ENV{RELEASE_TESTING}) {
         $get_sub->return_value({status => 200, content => '24.136.99.88'});
         my $ip = myip();
 
-        is $get_sub->called_count, 1, "HTTP client get called ok";
+        is $get_sub->called_count, 1, "HTTP client get called ok (mocked)";
         is $ip, '24.136.99.88', "myip() returns ok";
     }
 
@@ -24,10 +25,22 @@ if (! $ENV{DEV_TESTING} || $ENV{RELEASE_TESTING}) {
     {
         $get_sub->reset;
 
-        $get_sub->return_value({status => 403, content => '24.136.99.88'});
-        my $ip = myip();
+        $get_sub->return_value({status => 403, content => 'Unauthorized'});
 
-        is $get_sub->called_count, 1, "HTTP client get called ok";
+        my $h = Hook::Output::Tiny->new;
+
+        $h->hook;
+        my $ip = myip();
+        $h->unhook;
+
+        my @stderr = $h->stderr;
+
+        like
+            $stderr[0],
+            qr/Unauthorized/,
+            "on unsuccessful API call, display the error";
+
+        is $get_sub->called_count, 1, "HTTP client get called ok (mocked)";
         is $ip, '', "myip() returns empty string on API fail ok";
     }
 }

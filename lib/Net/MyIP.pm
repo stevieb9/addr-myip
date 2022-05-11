@@ -34,7 +34,7 @@ sub _get {
     my $status = $response->{status};
 
     if ($status != 200) {
-        warn "Failed to connect to $url to get your address: $resonse->{content}";
+        warn "Failed to connect to $url to get your address: $response->{content}";
         return '';
     }
 

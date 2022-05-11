@@ -28,6 +28,7 @@ my %WriteMakefileArgs = (
         'ExtUtils::MakeMaker' => '0',
     },
     TEST_REQUIRES => {
+        'Hook::Output::Tiny' => '0',
         'Mock::Sub'  => '0',
         'Test::More' => '0',
     },
