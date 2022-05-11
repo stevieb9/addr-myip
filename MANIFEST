@@ -1,8 +1,13 @@
+bin/myip
+bin/myip.pod
 Changes
 lib/Net/MyIP.pm
 Makefile.PL
 MANIFEST			This list of files
+MANIFEST.SKIP
 t/00-load.t
+t/05-ipv4.t
+t/10-ipv6.t
 t/manifest.t
 t/pod-coverage.t
 t/pod.t

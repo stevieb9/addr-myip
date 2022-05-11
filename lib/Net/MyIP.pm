@@ -3,7 +3,43 @@ package Net::MyIP;
 use strict;
 use warnings;
 
+use Data::Dumper;
+use Exporter qw(import);
+use HTTP::Tiny;
+
 our $VERSION = '0.01';
+
+our @EXPORT = qw(myip myip6);
+
+use constant {
+    IPV4_URL    => 'https://api.ipify.org',
+    IPV6_URL    => 'https://api64.ipify.org',
+};
+
+my $client = HTTP::Tiny->new;
+
+sub myip {
+    return _get(IPV4_URL);
+}
+sub myip6 {
+    my $ip = _get(IPV6_URL);
+
+    return $ip =~ /\./ ? '' : $ip;
+}
+
+sub _get {
+    my ($url) = @_;
+    my $response = $client->get($url);
+
+    my $status = $response->{status};
+
+    if ($status != 200) {
+        warn "Failed to connect to $url to get your address";
+        return '';
+    }
+
+    return $response->{content};
+}
 
 sub __placeholder {}
 
@@ -12,30 +48,43 @@ __END__
 
 =head1 NAME
 
-Net::MyIP - One line description
+Net::MyIP - Get your public facing IPv4 or IPv6 address
 
 =for html
 <a href="https://github.com/stevieb9/net-myip/actions"><img src="https://github.com/stevieb9/net-myip/workflows/CI/badge.svg"/></a>
 <a href='https://coveralls.io/github/stevieb9/net-myip?branch=main'><img src='https://coveralls.io/repos/stevieb9/net-myip/badge.svg?branch=main&service=github' alt='Coverage Status' /></a>
 
-
 =head1 SYNOPSIS
+
+    use Net::MyIP;
+
+    my $ipv4_addr = myip();
+    my $ipv6_addr = myip6();
 
 =head1 DESCRIPTION
 
-=head1 METHODS
+For end-users, please review the
+L<documentation|https://metacpan.org/pod/distribution/Net-MyIP/bin/myip.pod> for
+the L<distmgr|https://metacpan.org/pod/distribution/Net-MyIP/bin/myip.pod>
+program that we've installed for you as part of this distribution.
 
-=head2 name
+This software uses the B<api[64].ipify.org> website to fetch your public IP
+address. We do this in as small and tight a package as we can.
 
-Description.
+=head1 FUNCTIONS
 
-I<Parameters>:
+There are only two functions we provide, both exported into your namespace by
+default.
 
-    $bar
+=head2 myip
 
-I<Mandatory, String>: The name of the thing with the guy and the place.
+Returns a string containing your IPv4 address. If one isn't found, we'll return
+an empty string.
 
-I<Returns>: C<0> upon success.
+=head2 myip6
+
+Returns a string containing your IPv6 address if available. If one isn't found,
+we'll return an empty string.
 
 =head1 AUTHOR
 

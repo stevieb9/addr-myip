@@ -9,6 +9,7 @@ my %WriteMakefileArgs = (
     VERSION_FROM     => 'lib/Net/MyIP.pm',
     ABSTRACT_FROM    => 'lib/Net/MyIP.pm',
     LICENSE          => 'artistic_2',
+    EXE_FILES        => [qw(bin/myip)],
     MIN_PERL_VERSION => '5.006',
     META_MERGE => {
         'meta-spec' => { version => 2 },
@@ -30,8 +31,7 @@ my %WriteMakefileArgs = (
         'Test::More' => '0',
     },
     PREREQ_PM => {
-        #'ABC'              => '1.6',
-        #'Foo::Bar::Module' => '5.0401',
+        'HTTP::Tiny'        => 0,
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Net-MyIP-*' },
