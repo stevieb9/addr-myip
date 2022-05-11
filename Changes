@@ -1,7 +1,7 @@
 Revision history for Net-MyIP
 
 0.03 UNREL
-    -
+    - Print response content (error message) if API failure occurs
 
 0.02    2022-05-11
     - POD fixes
