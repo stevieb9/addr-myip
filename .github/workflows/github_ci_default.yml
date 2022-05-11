@@ -23,10 +23,15 @@ jobs:
         uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl }}
-      - run: perl -V
-      - run: cpanm ExtUtils::PL2Bat
-      - run: cpanm ExtUtils::MakeMaker
-      - run: cpanm --installdeps .
+      - name: Perl version
+        run: perl -V
+      - name: Set up Windows
+        if: matrix.os != 'windows-latest'
+        run: cpanm ExtUtils::PL2Bat
+      - name: Install prereqs
+        run: |
+          cpanm ExtUtils::MakeMaker
+          cpanm --installdeps .
       - name: Run tests (no coverage)
         if: ${{ !matrix.coverage }}
         run: prove -lv t
