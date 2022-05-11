@@ -28,10 +28,11 @@ my %WriteMakefileArgs = (
         'ExtUtils::MakeMaker' => '0',
     },
     TEST_REQUIRES => {
+        'Mock::Sub'  => '0',
         'Test::More' => '0',
     },
     PREREQ_PM => {
-        'HTTP::Tiny'        => 0,
+        'HTTP::Tiny' => '0',
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Net-MyIP-*' },
