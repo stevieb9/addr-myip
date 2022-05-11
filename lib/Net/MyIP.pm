@@ -65,7 +65,7 @@ Net::MyIP - Get your public facing IPv4 or IPv6 address
 
 For end-users, please review the
 L<documentation|https://metacpan.org/pod/distribution/Net-MyIP/bin/myip.pod> for
-the L<distmgr|https://metacpan.org/pod/distribution/Net-MyIP/bin/myip.pod>
+the L<myip|https://metacpan.org/pod/distribution/Net-MyIP/bin/myip.pod>
 program that we've installed for you as part of this distribution.
 
 This software uses the B<api[64].ipify.org> website to fetch your public IP
