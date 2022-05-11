@@ -32,7 +32,8 @@ my %WriteMakefileArgs = (
         'Test::More' => '0',
     },
     PREREQ_PM => {
-        'HTTP::Tiny' => '0',
+        'HTTP::Tiny'       => '0',
+        'IO::Socket::SSL'  => '0',
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'Net-MyIP-*' },
