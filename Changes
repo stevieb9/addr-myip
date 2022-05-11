@@ -1,7 +1,8 @@
 Revision history for Net-MyIP
 
 0.02 UNREL
-    -
+    - POD fixes
+    - Modifications to Github CI Actions configuration
 
 0.01    2022-05-11
     - Auto generated distribution with Dist::Mgr
