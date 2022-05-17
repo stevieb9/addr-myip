@@ -1,5 +1,8 @@
 Revision history for Addr-MyIP
 
+0.06 UNREL
+    -
+
 0.05    2022-05-17
     - Renamed distribution to Addr::MyIP from Net::MyIP due to the latter being
       in BackPAN, breaking my release

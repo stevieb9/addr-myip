@@ -7,7 +7,7 @@ use Data::Dumper;
 use Exporter qw(import);
 use HTTP::Tiny;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 our @EXPORT = qw(myip myip6);
 
