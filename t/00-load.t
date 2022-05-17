@@ -7,7 +7,7 @@ use Test::More;
 plan tests => 1;
 
 BEGIN {
-    use_ok( 'Net::MyIP' ) || print "Bail out!\n";
+    use_ok( 'Addr::MyIP' ) || print "Bail out!\n";
 }
 
-diag( "Testing Net::MyIP $Net::MyIP::VERSION, Perl $], $^X" );
+diag( "Testing Addr::MyIP $Addr::MyIP::VERSION, Perl $], $^X" );

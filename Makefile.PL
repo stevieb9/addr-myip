@@ -4,10 +4,10 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 my %WriteMakefileArgs = (
-    NAME             => 'Net::MyIP',
+    NAME             => 'Addr::MyIP',
     AUTHOR           => q{Steve Bertrand <steveb@cpan.org>},
-    VERSION_FROM     => 'lib/Net/MyIP.pm',
-    ABSTRACT_FROM    => 'lib/Net/MyIP.pm',
+    VERSION_FROM     => 'lib/Addr/MyIP.pm',
+    ABSTRACT_FROM    => 'lib/Addr/MyIP.pm',
     LICENSE          => 'artistic_2',
     EXE_FILES        => [qw(bin/myip)],
     MIN_PERL_VERSION => '5.006',
@@ -37,7 +37,7 @@ my %WriteMakefileArgs = (
         'IO::Socket::SSL'  => '0',
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean => { FILES => 'Net-MyIP-*' },
+    clean => { FILES => 'Addr-MyIP-*' },
 );
 
 # Compatibility with old versions of ExtUtils::MakeMaker

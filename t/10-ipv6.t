@@ -3,7 +3,7 @@ use strict;
 
 use Hook::Output::Tiny;
 use Mock::Sub;
-use Net::MyIP;
+use Addr::MyIP;
 use Test::More;
 
 if (! $ENV{DEV_TESTING} || $ENV{RELEASE_TESTING}) {

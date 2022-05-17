@@ -1,4 +1,4 @@
-package Net::MyIP;
+package Addr::MyIP;
 
 use strict;
 use warnings;
@@ -48,15 +48,15 @@ __END__
 
 =head1 NAME
 
-Net::MyIP - Get your public facing IPv4 or IPv6 address
+Addr::MyIP - Get your public facing IPv4 or IPv6 address
 
 =for html
-<a href="https://github.com/stevieb9/net-myip/actions"><img src="https://github.com/stevieb9/net-myip/workflows/CI/badge.svg"/></a>
-<a href='https://coveralls.io/github/stevieb9/net-myip?branch=main'><img src='https://coveralls.io/repos/stevieb9/net-myip/badge.svg?branch=main&service=github' alt='Coverage Status' /></a>
+<a href="https://github.com/stevieb9/addr-myip/actions"><img src="https://github.com/stevieb9/addr-myip/workflows/CI/badge.svg"/></a>
+<a href='https://coveralls.io/github/stevieb9/addr-myip?branch=main'><img src='https://coveralls.io/repos/stevieb9/addr-myip/badge.svg?branch=main&service=github' alt='Coverage Status' /></a>
 
 =head1 SYNOPSIS
 
-    use Net::MyIP;
+    use Addr::MyIP;
 
     my $ipv4_addr = myip();
     my $ipv6_addr = myip6();
@@ -64,8 +64,8 @@ Net::MyIP - Get your public facing IPv4 or IPv6 address
 =head1 DESCRIPTION
 
 For end-users, please review the
-L<documentation|https://metacpan.org/pod/distribution/Net-MyIP/bin/myip.pod> for
-the L<myip|https://metacpan.org/pod/distribution/Net-MyIP/bin/myip.pod>
+L<documentation|https://metacpan.org/pod/distribution/Addr-MyIP/bin/myip.pod> for
+the L<myip|https://metacpan.org/pod/distribution/Addr-MyIP/bin/myip.pod>
 program that we've installed for you as part of this distribution.
 
 This software uses the B<api[64].ipify.org> website to fetch your public IP

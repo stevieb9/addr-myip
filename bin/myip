@@ -3,7 +3,7 @@
 use warnings;
 use strict;
 
-use Net::MyIP;
+use Addr::MyIP;
 
 if (scalar @ARGV && $ARGV[0] == 6) {
     print myip6() . "\n";
